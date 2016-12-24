@@ -1,0 +1,2 @@
+
+require("./extentions")(jQuery);
