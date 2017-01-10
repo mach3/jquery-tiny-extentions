@@ -2,7 +2,7 @@
  * jquery-tiny-extentions
  * ----------------------
  * @author mach3 <mach3@mach3.jp>
- * @version 0.1.0 (2016-1221-06)
+ * @version 0.1.0 (2017-0110-18)
  * @license MIT
  */
 
@@ -71,10 +71,11 @@ module.exports = function($){
 				}
 			};
 			$.extend(true, ClassObject.prototype, props);
-			ClassObject.extend = function(sup){
+			ClassObject.extend = function(sup, override){
 				var key;
 				sup = $.isFunction(sup) ? sup.prototype : sup;
 				for(key in sup){
+					if((key in this.prototype) && ! override) continue;
 					if(sup.hasOwnProperty(key) && key !== "_constructor"){
 						this.prototype[key] = sup[key];
 					}

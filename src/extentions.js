@@ -58,10 +58,11 @@ module.exports = function($){
 				}
 			};
 			$.extend(true, ClassObject.prototype, props);
-			ClassObject.extend = function(sup){
+			ClassObject.extend = function(sup, override){
 				var key;
 				sup = $.isFunction(sup) ? sup.prototype : sup;
 				for(key in sup){
+					if((key in this.prototype) && ! override) continue;
 					if(sup.hasOwnProperty(key) && key !== "_constructor"){
 						this.prototype[key] = sup[key];
 					}

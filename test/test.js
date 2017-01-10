@@ -91,6 +91,35 @@ describe("$.classify", function(){
 		expect(john.hello()).toBe("hello");
 	});
 
+	it("Extends with override option", function(){
+
+		var Foo = $.classify({
+			test: function(){
+				return "foo";
+			}
+		});
+		var Bar = $.classify({
+			test: function(){
+				return "bar";
+			}
+		});
+		var Baz = $.classify({
+			test: function(){
+				return "baz";
+			}
+		});
+
+		Bar.extend(Foo);
+		Baz.extend(Foo, true);
+
+		var bar = new Bar();
+		var baz = new Baz();
+
+		expect(bar.test()).toBe("bar");
+		expect(baz.test()).toBe("foo");
+
+	});
+
 });
 
 describe("$.configify", function(){
