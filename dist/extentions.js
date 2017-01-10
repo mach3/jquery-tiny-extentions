@@ -2,7 +2,7 @@
  * jquery-tiny-extentions
  * ----------------------
  * @author mach3 <mach3@mach3.jp>
- * @version 0.1.0 (2017-0110-18)
+ * @version 0.1.1 (2017-0110-18)
  * @license MIT
  */
 

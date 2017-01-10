@@ -1,6 +1,6 @@
 {
   "name": "jquery-tiny-extentions",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "",
   "main": "src/extentions.js",
   "scripts": {
